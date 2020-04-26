@@ -8,21 +8,11 @@ namespace Objects
 {
     public class Enemy : MonoBehaviour
     {
-        public enum WeaponType
-        {
-            None,
-            Ranged,
-            Melee
-        }
 
         public GameProxy Controller;
         public Character Character;
         public NavMeshAgent NavAgent;
-        public GameObject BulletPrefab;
-        public Vector3 WeaponOffset = new Vector3(1, 1, 0);
 
-        public WeaponType UsedWeaponType;
-        public float AttackDistance = 5f;
         public float AttackSpeed = 5f;
         public float Damage = 10f;
         public int CostInCoins = 10;
@@ -57,42 +47,16 @@ namespace Objects
             {
                 var v = Controller.DefendedTower.transform.position - gameObject.transform.position;
                 var dist = v.magnitude;
-                if (dist > AttackDistance)
-                {
-                    Character.Movement.MovePosition(Controller.DefendedTower.transform.position);
-                }
-                else if (dist <= AttackDistance)
-                {
-                    Character.Movement.MovePosition(gameObject.transform.position);
-                    if (UsedWeaponType == WeaponType.None) return;
-                    else if (UsedWeaponType == WeaponType.Ranged)
-                    {
-                        if (_attackTimer > 0)
-                        {
-                            _attackTimer -= Time.deltaTime;
-                            if (_attackTimer <= 0)
-                            {
-                                _attackTimer = AttackSpeed;
-                                gameObject.transform.LookAt(Controller.DefendedTower.transform.position + new Vector3(0, 1, 0));
-                                Instantiate(BulletPrefab, (transform.position + WeaponOffset), transform.rotation);
-                            }
-                        }
-                    }
-                    else if (UsedWeaponType == WeaponType.Melee)
-                    {
-                        if (_attackTimer > 0)
-                        {
-                            _attackTimer -= Time.deltaTime;
-                            if (_attackTimer <= 0)
-                            {
-                                _attackTimer = AttackSpeed;
-                                var health = Controller.DefendedTower.GetComponentInParent<Health>();
-                                health.PureDamage(Damage);
-                                Debug.Log(health.Hitpoints);
-                            }
-                        }
-                    }
-                }
+                Character.Movement.MovePosition(Controller.DefendedTower.transform.position);
+            }
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject == Controller.DefendedTower.gameObject)
+            {
+                Controller.DefendedTower.Health.PureDamage(Damage);
+                Destroy(gameObject);
             }
         }
     }
