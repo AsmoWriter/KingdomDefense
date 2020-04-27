@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9fcac74be718344af98a557fb35acc, type: 3}
   m_Name: GameProxy
   m_EditorClassIdentifier: 
-  DefendedTower: {fileID: 4620906045300177220, guid: 4f3e92bf10cb572488d5c9abc4164291,
-    type: 3}
-  StartCoins: 0
+  StartCoins: 50

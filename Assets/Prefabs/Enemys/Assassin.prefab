@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 8634127763562377229}
   Agent: {fileID: 7114574294920302383}
-  Speed: 5
+  Speed: 0
   LookSlerp: 10
 --- !u!114 &919496068734038145
 MonoBehaviour:
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 11400000, guid: ca6a96cf9ded8a14ea28625cdfbb89d0, type: 2}
   Character: {fileID: 7647554183046390247}
-  Damage: 20
-  CostInCoins: 10
+  Damage: 0
+  CostInCoins: 0
 --- !u!1 &6124669876139697028
 GameObject:
   m_ObjectHideFlags: 0
