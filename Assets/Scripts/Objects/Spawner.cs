@@ -49,14 +49,16 @@ namespace Objects
         {
             for (int i = 0; i < enemyCount; i++)
             {
-                int randomPoint = new System.Random().Next(0, SpawnPoints.Length);
                 int randomPrefab = new System.Random().Next(0, Prefabs.Length);
+                yield return new WaitForSeconds(0.1f);
+                int randomPoint = new System.Random().Next(0, SpawnPoints.Length);
                 Instantiate(Prefabs[randomPrefab], SpawnPoints[randomPoint].position, transform.rotation);
-                if (_wavesCount % 10 == 0)
-                {
-                    Instantiate(BossPrefab, SpawnPoints[randomPoint].position, transform.rotation);
-                    yield return new WaitForSeconds(Delay);
-                }
+                yield return new WaitForSeconds(Delay);
+            }
+            if (_wavesCount % 10 == 0)
+            {
+                int randomPoint = new System.Random().Next(0, SpawnPoints.Length);
+                Instantiate(BossPrefab, SpawnPoints[randomPoint].position, transform.rotation);
                 yield return new WaitForSeconds(Delay);
             }
         }

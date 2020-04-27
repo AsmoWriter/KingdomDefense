@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39524eeb1ac3a54aaa312d975c3d385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rigidbody: {fileID: 0}
-  Agent: {fileID: 0}
+  Rigidbody: {fileID: 7448023785033771985}
+  Agent: {fileID: 3166496035352674103}
   Speed: 4
   LookSlerp: 10
 --- !u!114 &6019693476106640796
