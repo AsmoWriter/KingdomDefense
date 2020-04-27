@@ -81,10 +81,11 @@ namespace Objects
                 for (int i = _timer; i > 0; i--)
                 {
                     Hitpoints -= (damageValue * 0.05f);
-                    Debug.Log(Hitpoints);
+                    if (Hitpoints <= 0)
+                    {
+                        DieEvent?.Invoke();
+                    }
                     yield return new WaitForSeconds(1);
-                    Debug.Log(i);
-                    DieEvent?.Invoke();
                 }
             }
         }

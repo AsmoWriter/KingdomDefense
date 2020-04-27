@@ -31,7 +31,7 @@ namespace Objects
                 _spawnRoutine = StartCoroutine(SpawnRoutine(_enemysCount));
                 _wavesCount += 1;
                 _enemysCount += 1;
-                SpawnTime += 10;
+                SpawnTime += 5;
                 _spawnTimer = SpawnTime;
             }
         }
