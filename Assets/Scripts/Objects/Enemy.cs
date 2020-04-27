@@ -11,13 +11,9 @@ namespace Objects
 
         public GameProxy Controller;
         public Character Character;
-        public NavMeshAgent NavAgent;
 
-        public float AttackSpeed = 5f;
         public float Damage = 10f;
         public int CostInCoins = 10;
-
-        private float _attackTimer;
 
         private void OnEnable()
         {
@@ -26,7 +22,6 @@ namespace Objects
             Character.Movement.SetSpeed(Character.Movement.Speed);
 
             Controller.AddObject(gameObject);
-            _attackTimer = AttackSpeed;
         }
 
         private void OnDisable()

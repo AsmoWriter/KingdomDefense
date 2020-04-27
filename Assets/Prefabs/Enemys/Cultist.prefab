@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 478636854290067196}
   - component: {fileID: 478636854290067197}
   m_Layer: 0
-  m_Name: CultistModel
+  m_Name: Cultist
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 478636854290067190}
   Agent: {fileID: 478636854290067191}
-  Speed: 3
+  Speed: 2
   LookSlerp: 10
 --- !u!114 &478636854290067187
 MonoBehaviour:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e630944c5488204ca4a7a18c59e3420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitpointMax: 100
+  HitpointMax: 50
   FireResistance: 10
   IceResistance: 10
   ElecticResistance: 10
@@ -229,10 +229,6 @@ MonoBehaviour:
   Controller: {fileID: 11400000, guid: ca6a96cf9ded8a14ea28625cdfbb89d0, type: 2}
   Character: {fileID: 478636854290067196}
   NavAgent: {fileID: 478636854290067191}
-  BulletPrefab: {fileID: 0}
-  WeaponOffset: {x: 1, y: 1, z: 0}
-  UsedWeaponType: 2
-  AttackDistance: 20
   AttackSpeed: 5
-  Damage: 10
+  Damage: 5
   CostInCoins: 10
