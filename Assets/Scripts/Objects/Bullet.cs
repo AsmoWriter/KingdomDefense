@@ -29,8 +29,15 @@ namespace Objects
 
         private void FixedUpdate()
         {
-            gameObject.transform.LookAt(ShootTarget.transform.position + new Vector3(0, 1, 0));
-            Rigidbody.velocity = transform.TransformDirection(Vector3.forward * Speed);
+            if (ShootTarget != null)
+            {
+                gameObject.transform.LookAt(ShootTarget.transform.position + new Vector3(0, 1, 0));
+                Rigidbody.velocity = transform.TransformDirection(Vector3.forward * Speed);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         private void OnCollisionEnter(Collision collision)

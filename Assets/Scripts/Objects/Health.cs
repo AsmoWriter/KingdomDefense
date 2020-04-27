@@ -84,6 +84,7 @@ namespace Objects
                     Debug.Log(Hitpoints);
                     yield return new WaitForSeconds(1);
                     Debug.Log(i);
+                    DieEvent?.Invoke();
                 }
             }
         }
