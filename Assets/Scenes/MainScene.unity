@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 333306235}
   m_Layer: 0
   m_Name: BuildingPlatform (10)
-  m_TagString: Untagged
+  m_TagString: BuildingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 462102129}
   m_Layer: 0
   m_Name: BuildingPlatform (1)
-  m_TagString: Untagged
+  m_TagString: BuildingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 782368216}
   m_Layer: 0
   m_Name: BuildingPlatform (2)
-  m_TagString: Untagged
+  m_TagString: BuildingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1009,7 +1009,7 @@ GameObject:
   - component: {fileID: 887301673}
   m_Layer: 0
   m_Name: BuildingPlatform (11)
-  m_TagString: Untagged
+  m_TagString: BuildingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1371,7 +1371,7 @@ GameObject:
   - component: {fileID: 1138819411}
   m_Layer: 0
   m_Name: BuildingPlatform (3)
-  m_TagString: Untagged
+  m_TagString: BuildingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1687,7 +1687,7 @@ GameObject:
   - component: {fileID: 1326086243}
   m_Layer: 0
   m_Name: BuildingPlatform (12)
-  m_TagString: Untagged
+  m_TagString: BuildingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2089,7 +2089,7 @@ GameObject:
   - component: {fileID: 1534021134}
   m_Layer: 0
   m_Name: BuildingPlatform (4)
-  m_TagString: Untagged
+  m_TagString: BuildingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
