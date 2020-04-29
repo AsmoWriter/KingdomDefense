@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 11400000, guid: ca6a96cf9ded8a14ea28625cdfbb89d0, type: 2}
   Weapon: {fileID: 8747837968740261772}
+  TowerName: Ice Tower
   BuildCost: 110
   DestroyCost: 50
 --- !u!1 &6506355596055082566

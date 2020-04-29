@@ -1,35 +1,36 @@
 ﻿using System;
-using Controllers;
 using Objects;
 using UnityEngine;
 
-namespace Views
+namespace Controllers
 {
     public class GameController : MonoBehaviour, IGameView
     {
         public GameProxy Controller;
         public Character DefendedTowerPrefab;
-        public Transform StartBuildPoint;
-        public GameObject[] GameObjects;
+        public Transform DefendedTowerStartPoint;
+        public GameObject EnemySpawner;
+
+        public GameObject StartMenu;
+        public GameObject EndGameWindow;
+        public GameObject HUD;
 
         public event Action DefendedTowerDeadEvent;
         public event Action<float> DefendedTowerHealthChangeEvent;
 
         private void OnEnable()
         {
+            StartMenu.SetActive(true);
             Controller.OnOpen(this);
-            SpawnPlayer();
         }
-
         private void OnDisable()
         {
             Controller.OnClose(this);
-            
         }
 
-        private void SpawnPlayer()
+        private void SpawnKingTower()
         {
-            var kingTower = Instantiate(DefendedTowerPrefab, StartBuildPoint.position, StartBuildPoint.rotation);
+            var kingTower = Instantiate(DefendedTowerPrefab, DefendedTowerStartPoint.position, DefendedTowerStartPoint.rotation);
             if (kingTower == null)
                 return;
             var health = kingTower.Health;
@@ -45,9 +46,12 @@ namespace Views
 
         public void StartGame()
         {
-            SpawnPlayer();
-            foreach (var o in GameObjects)
-                o.SetActive(true);
+            SpawnKingTower();
+            EnemySpawner.SetActive(true);
+            StartMenu.SetActive(false);
+            HUD.SetActive(true);
+            EndGameWindow.SetActive(false);
+            Controller.ResetCoins();
         }
 
         public void StopGame()
@@ -61,9 +65,17 @@ namespace Views
 
             Controller.DefendedTower = null;
 
-            foreach (var o in GameObjects)
-                o.SetActive(false);
+            EnemySpawner.SetActive(false);
+            EndGameWindow.SetActive(true);
+            HUD.SetActive(false);
         }
+        public void ExitToMenu()
+        {
+            EndGameWindow.SetActive(false);
+            StartMenu.SetActive(true);
+        }
+        
+
         private void OnDefendedTowerDead()
         {
             DefendedTowerDeadEvent?.Invoke();

@@ -176,5 +176,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 11400000, guid: ca6a96cf9ded8a14ea28625cdfbb89d0, type: 2}
   Weapon: {fileID: 2729497488014662284}
+  TowerName: Fier Tower
   BuildCost: 80
   DestroyCost: 30

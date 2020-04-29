@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 11400000, guid: ca6a96cf9ded8a14ea28625cdfbb89d0, type: 2}
   Weapon: {fileID: 8235824073326170950}
+  TowerName: Electric Tower
   BuildCost: 150
   DestroyCost: 70
 --- !u!1 &7188030956303494869

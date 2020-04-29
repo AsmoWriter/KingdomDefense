@@ -11,8 +11,9 @@ namespace Objects
         public GameObject BossPrefab;
 
         public float Delay = 1;
-        public float SpawnTime = 5f;
+        public float BaseSpawnTime = 5f;
 
+        private float _spawnTime;
         private int _wavesCount = 1;
         private int _enemysCount = 2;
         private float _spawnTimer;
@@ -20,7 +21,8 @@ namespace Objects
 
         private void OnEnable()
         {
-            _spawnTimer = SpawnTime;
+            _spawnTime = BaseSpawnTime;
+            _spawnTimer = _spawnTime;
         }
 
         private void Update()
@@ -31,8 +33,8 @@ namespace Objects
                 _spawnRoutine = StartCoroutine(SpawnRoutine(_enemysCount));
                 _wavesCount += 1;
                 _enemysCount += 1;
-                SpawnTime += 5;
-                _spawnTimer = SpawnTime;
+                _spawnTime += 5;
+                _spawnTimer = _spawnTime;
             }
         }
 
@@ -43,7 +45,10 @@ namespace Objects
                 StopCoroutine(_spawnRoutine);
                 _spawnRoutine = null;
             }
-        }
+            _spawnTimer = BaseSpawnTime;
+            _wavesCount = 1;
+            _enemysCount = 2;
+    }
 
         private IEnumerator SpawnRoutine(int enemyCount)
         {

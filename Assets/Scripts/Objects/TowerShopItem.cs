@@ -6,17 +6,19 @@ namespace Objects
     public class TowerShopItem : MonoBehaviour
     {
         public GameProxy Controller;
+
         public TowrerWeapon Weapon;
+        public string TowerName;
         public int BuildCost;
         public int DestroyCost;
         private void OnEnable()
         {
-            OnBuilt();
+            Controller.AddObject(gameObject);
         }
 
         private void OnDisable()
         {
-            OnDestroyed();
+            Controller.RemoveObject(gameObject);
         }
 
         private void OnBuilt()

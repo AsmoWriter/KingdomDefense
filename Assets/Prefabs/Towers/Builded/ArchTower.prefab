@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 11400000, guid: ca6a96cf9ded8a14ea28625cdfbb89d0, type: 2}
   Weapon: {fileID: 6854715621980771555}
+  TowerName: Arch Tower
   BuildCost: 50
   DestroyCost: 20
 --- !u!1 &6854715621980771553

@@ -9,6 +9,7 @@ namespace Controllers {
         event Action DefendedTowerDeadEvent;
         event Action<float> DefendedTowerHealthChangeEvent;
 
+
         void StartGame();
         void StopGame();
     }
@@ -17,10 +18,9 @@ namespace Controllers {
     public class GameProxy : ScriptableObject
     {
         public event Action EndGameEvent;
-        public event Action<int> ScoreChangedEvent;
-        public event Action<float> PlayerHealthChangeEvent;
+        public event Action<int> CoinsChangedEvent;
+        public event Action<float> DefendedTowerHealthChangeEvent;
 
-        
         public Character DefendedTower { get; set; }
         public int StartCoins;
         private readonly List<GameObject> _objects = new List<GameObject>();
@@ -41,36 +41,41 @@ namespace Controllers {
         public void AddCoins(int value)
         {
             _coins += value;
-            ScoreChangedEvent?.Invoke(_coins);
+            CoinsChangedEvent?.Invoke(_coins);
         }
 
         public void SubtractCoins(int value)
         {
             _coins -= value;
-            ScoreChangedEvent?.Invoke(_coins);
+            CoinsChangedEvent?.Invoke(_coins);
+        }
+        public void ResetCoins()
+        {
+            _coins = StartCoins;
+            CoinsChangedEvent?.Invoke(StartCoins);
         }
 
         public void NewGame()
         {
-            _coins = StartCoins;
+
             _view?.StartGame();
         }
 
         public void OnOpen(IGameView view)
         {
-            view.DefendedTowerDeadEvent += OnPlayerDead;
-            view.DefendedTowerHealthChangeEvent += OnPlayerHealthChange;
+            view.DefendedTowerDeadEvent += OnKingTowerDead;
+            view.DefendedTowerHealthChangeEvent += OnKingTowerHealthChange;
             _view = view;
         }
 
         public void OnClose(IGameView view)
         {
-            view.DefendedTowerDeadEvent -= OnPlayerDead;
-            view.DefendedTowerHealthChangeEvent -= OnPlayerHealthChange;
+            view.DefendedTowerDeadEvent -= OnKingTowerDead;
+            view.DefendedTowerHealthChangeEvent -= OnKingTowerHealthChange;
             _view = null;
         }
 
-        private void OnPlayerDead()
+        private void OnKingTowerDead()
         {
             _view?.StopGame();
 
@@ -81,9 +86,9 @@ namespace Controllers {
             EndGameEvent?.Invoke();
         }
 
-        private void OnPlayerHealthChange(float value)
+        private void OnKingTowerHealthChange(float value)
         {
-            PlayerHealthChangeEvent?.Invoke(value);
+            DefendedTowerHealthChangeEvent?.Invoke(value);
         }
     }
 
