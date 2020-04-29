@@ -10,6 +10,7 @@ namespace Controllers
         public Character DefendedTowerPrefab;
         public Transform DefendedTowerStartPoint;
         public GameObject EnemySpawner;
+        public GameObject BuildingPlatform;
 
         public GameObject StartMenu;
         public GameObject EndGameWindow;
@@ -48,6 +49,7 @@ namespace Controllers
         {
             SpawnKingTower();
             EnemySpawner.SetActive(true);
+            BuildingPlatform.SetActive(true);
             StartMenu.SetActive(false);
             HUD.SetActive(true);
             EndGameWindow.SetActive(false);
@@ -66,6 +68,7 @@ namespace Controllers
             Controller.DefendedTower = null;
 
             EnemySpawner.SetActive(false);
+            BuildingPlatform.SetActive(false);
             EndGameWindow.SetActive(true);
             HUD.SetActive(false);
         }

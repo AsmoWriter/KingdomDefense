@@ -26,7 +26,7 @@ namespace Controllers {
         private readonly List<GameObject> _objects = new List<GameObject>();
 
         private IGameView _view;
-        private int _coins;
+        public int Coins { get; set; }
 
         public void AddObject(GameObject obj)
         {
@@ -40,18 +40,18 @@ namespace Controllers {
 
         public void AddCoins(int value)
         {
-            _coins += value;
-            CoinsChangedEvent?.Invoke(_coins);
+            Coins += value;
+            CoinsChangedEvent?.Invoke(Coins);
         }
 
         public void SubtractCoins(int value)
         {
-            _coins -= value;
-            CoinsChangedEvent?.Invoke(_coins);
+            Coins -= value;
+            CoinsChangedEvent?.Invoke(Coins);
         }
         public void ResetCoins()
         {
-            _coins = StartCoins;
+            Coins = StartCoins;
             CoinsChangedEvent?.Invoke(StartCoins);
         }
 

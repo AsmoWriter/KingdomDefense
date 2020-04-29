@@ -30,7 +30,7 @@ namespace Editor
                 TowerPrefab.gameObject.GetComponent<TowerShopItem>().Weapon.UsedWeaponType = (TowrerWeapon.WeaponType)EditorGUILayout.EnumFlagsField("Damage mode", TowerPrefab.gameObject.GetComponent<TowerShopItem>().Weapon.UsedWeaponType);
                 if (TowerPrefab.gameObject.GetComponent<TowerShopItem>().Weapon.UsedWeaponType == TowrerWeapon.WeaponType.Ranged)
                 {
-                    TowerPrefab.gameObject.GetComponent<TowerShopItem>().Weapon.BulletPrefab = EditorGUILayout.ObjectField("Tower Prefab", TowerPrefab, typeof(GameObject), true) as GameObject;
+                    TowerPrefab.gameObject.GetComponent<TowerShopItem>().Weapon.BulletPrefab = EditorGUILayout.ObjectField("Bullet Prefab", TowerPrefab.gameObject.GetComponent<TowerShopItem>().Weapon.BulletPrefab, typeof(GameObject), true) as GameObject;
                 }
             }
             else
